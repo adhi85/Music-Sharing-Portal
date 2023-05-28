@@ -43,7 +43,7 @@ class Musics(models.Model):
         validators=[ext_validator])
     category = models.CharField(
         max_length=10, choices=TYPE_CHOICES, blank=False)
-    uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     email_addresses_with_access = models.TextField(
         blank=True, help_text="Comma-separated email addresses")
 
