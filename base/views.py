@@ -81,7 +81,7 @@ def registerPage(request):
     return render(request, 'base/login_register.html', {'form': form})
 
 
-# View fon uploading Music
+#View for uploading Music
 @csrf_exempt
 @login_required(login_url='login')
 def uploadMusic(request):
