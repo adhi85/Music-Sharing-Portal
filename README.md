@@ -23,9 +23,15 @@ DATABASES = {
     }
 } 
 ```
-5. Run the server  
+5. Delete the existing migrations (0001_initial.py) in base/migrations 
+6. Run  
+ ``` 
+ python manage.py makemigrations  
+ python manage.py migrate
+ ```
+7. Run the server  
 `` python manage.py runserver ``
-6. Access the server at  
+8. Access the server at  
  http://127.0.0.1:8000/
  
  ## Deployed Link   
