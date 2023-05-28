@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+{% if music_files %}
+<ul>
+  {% for music_file in music_files %}
+  <li>Music title: {{ music_file.title }}</li>
+  <li>Download: <a href="{{ music_file.music.url }}" download>{{ music_file.music }}</a></li>
+  <li>Uploaded By: {{ music_file.uploaded_by }}</li>
+  <hr>
+  <br>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No music files available.</p>
+{% endif %}
+
+
+{% endblock %}
