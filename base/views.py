@@ -4,8 +4,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from . forms import MusicForm, MyUserCreationForm
 from . models import Musics, User
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 def home(request):
     user = request.user
 
@@ -30,7 +31,7 @@ def home(request):
 
     return render(request, 'base/home.html', {'music_files': music_files})
 
-
+@csrf_exempt
 def loginPage(request):
     page = 'login'
 
@@ -55,12 +56,13 @@ def loginPage(request):
     return render(request, 'base/login_register.html', context)
 
 
+@csrf_exempt
 @login_required()
 def logoutUser(request):
     logout(request)
     return redirect('home')
 
-
+@csrf_exempt
 def registerPage(request):
     form = MyUserCreationForm()
 
@@ -78,7 +80,9 @@ def registerPage(request):
 
     return render(request, 'base/login_register.html', {'form': form})
 
-#funciton fon uploading Music
+
+# View fon uploading Music
+@csrf_exempt
 @login_required(login_url='login')
 def uploadMusic(request):
     if request.method == 'POST':

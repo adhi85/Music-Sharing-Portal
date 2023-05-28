@@ -3,6 +3,7 @@
 </a>
 
 <a href="{% url 'upload-music' %}">UPLOAD</a>
+<br>
 {% if request.user.is_authenticated %}
 
 <h4>UserName: {{request.user.username}}</h4>
