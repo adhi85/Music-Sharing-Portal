@@ -3,20 +3,19 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.core.validators import FileExtensionValidator
 from django.core.exceptions import ValidationError
-import magic
+# import magic
 
 # To check the extension of the file uploaded so that only audio files are uploaded using extension
 ext_validator = FileExtensionValidator(['mp3', 'wav', 'flac'])
 
+# Commenting out because deploying with python-magic-bin doesnt work.
 # Check the file content using python-magic so that only audio files are uploaded
+# def validate_file_mimetype(file):
+#     accept = ['audio/mpeg', 'audio/wav', 'audio/flac', 'audio/x-wav']
+#     file_mime_type = magic.from_buffer(file.read(1024), mime=True)
 
-
-def validate_file_mimetype(file):
-    accept = ['audio/mpeg', 'audio/wav', 'audio/flac', 'audio/x-wav']
-    file_mime_type = magic.from_buffer(file.read(1024), mime=True)
-
-    if file_mime_type not in accept:
-        raise ValidationError("Unsupported file type")
+#     if file_mime_type not in accept:
+#         raise ValidationError("Unsupported file type")
 
 # User Model
 
@@ -41,7 +40,7 @@ TYPE_CHOICES = [
 class Musics(models.Model):
     title = models.CharField(max_length=255)
     music = models.FileField(
-        validators=[ext_validator, validate_file_mimetype])
+        validators=[ext_validator])
     category = models.CharField(
         max_length=10, choices=TYPE_CHOICES, blank=False)
     uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
