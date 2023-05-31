@@ -1,6 +1,12 @@
 # Music-Sharing-Portal Using Python Django
-
-•	A basic website that allows users to upload music and share it with each other.
+## About
+• A basic website that allows users to upload music and share it with each other.   
+• Users can register and login on the platform using Email.   
+• Users can upload music files on the platform and have different visibility options i.e as public/private/protected.    
+• Public Music File: Visible to all the users.    
+• Private Music File: Visible to the user who has uploaded it.    
+• Protected Music File: Visible to users who have access to the file using email.   
+(When User uploads the music file user can add email addresses of other Users that can acces it.). 
 
 ## How to run in local environment
 1. Clone this project  
@@ -35,5 +41,9 @@ DATABASES = {
  http://127.0.0.1:8000/
  
  ## Deployed Link   
- https://web-production-4a08.up.railway.app/
+ https://web-production-4a08.up.railway.app/     
+ 
+ PS: Only focused on Logic and not frontend UI.
+ 
+ 
  
