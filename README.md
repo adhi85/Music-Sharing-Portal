@@ -1,4 +1,4 @@
-# Music-Sharing-Portal
+# Music-Sharing-Portal Using Python Django
 
 •	A basic website that allows users to upload music and share it with each other.
 
